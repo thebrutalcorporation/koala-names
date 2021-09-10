@@ -46,7 +46,6 @@ const Characteristics = ({
   };
 
   const handleSubmit = () => {
-    console.log("in handle submit");
     return history.push("/analyze");
   };
 

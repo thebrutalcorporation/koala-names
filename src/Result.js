@@ -58,9 +58,9 @@ const Result = ({ gender, characteristics }) => {
     <Redirect to="/" />
   ) : (
     <>
-      {BOYS.map((option) => (
-        <Name option={option} />
-      ))}
+      {gender === "boy"
+        ? BOYS.map((option) => <Name option={option} />)
+        : GIRLS.map((option) => <Name option={option} />)}
     </>
   );
 };
