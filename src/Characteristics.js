@@ -1,4 +1,14 @@
 import React from "react";
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  Box,
+  Button,
+  Checkbox,
+  Flex,
+} from "@chakra-ui/react";
+import GenderSelect from "./GenderSelect";
 import { useHistory } from "react-router-dom";
 
 const CHARACTERISTICS_OPTIONS = [
@@ -26,7 +36,7 @@ const Characteristics = ({
 }) => {
   const history = useHistory();
 
-  const handleSelection = (event, characteristicName) => {
+  const handleSelection = (characteristicName) => {
     const characteristicsCopy = characteristics;
 
     // Find index
@@ -50,51 +60,79 @@ const Characteristics = ({
   };
 
   return (
-    <>
-      {limit && <div>You can only choose 5!!!</div>}
-      {gender && (
-        <div>Selected characteristics: {JSON.stringify(characteristics)}</div>
+    <Flex
+      width="full"
+      align="center"
+      justifyContent="center"
+      flexDirection="column"
+    >
+      {limit && (
+        <Alert
+          variant="subtle"
+          alignItems="center"
+          justifyContent="center"
+          textAlign="center"
+          status="error"
+        >
+          <AlertIcon />
+          <AlertTitle mr={2}>You can only select 5 options.</AlertTitle>
+        </Alert>
       )}
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log(gender);
-          console.log(characteristics);
-          handleSubmit();
-        }}
+      <Flex
+        width="full"
+        my={4}
+        textAlign="left"
+        flexDirection="column"
+        justifyContent="center"
       >
-        {!gender && (
-          <div>
-            <button
-              onClick={() => {
-                setGender("boy");
-              }}
-            >
-              boy
-            </button>
-            <button onClick={() => setGender("girl")}>girl</button>
-          </div>
-        )}
-        {gender &&
-          CHARACTERISTICS_OPTIONS.map((characteristic) => (
-            <label key={characteristic.name}>
-              {characteristic.icon}
-              {characteristic.name}
-              <input
-                disabled={
-                  limit && !characteristics.includes(characteristic.name)
-                }
-                type="checkbox"
-                onChange={(event) =>
-                  handleSelection(event, characteristic.name)
-                }
-                selected={characteristics.includes(characteristic.name)}
-              />
-            </label>
-          ))}
-        {characteristics.length === 5 && <button type="submit">Submit</button>}
-      </form>
-    </>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
+        >
+          {!gender && <GenderSelect setGender={setGender} />}
+          <Flex flexWrap="wrap" justifyContent="center">
+            {gender &&
+              CHARACTERISTICS_OPTIONS.map((characteristic) => (
+                <Flex
+                  borderWidth="1px"
+                  borderRadius="lg"
+                  justifyContent="center"
+                  width={180}
+                  height={100}
+                  p={5}
+                  m={2}
+                  key={characteristic.name}
+                >
+                  <Checkbox
+                    colorScheme={gender === "boy" ? "blue" : "pink"}
+                    isDisabled={
+                      limit && !characteristics.includes(characteristic.name)
+                    }
+                    onChange={() => handleSelection(characteristic.name)}
+                    isChecked={characteristics.includes(characteristic.name)}
+                  >
+                    {characteristic.icon}
+                    {characteristic.name}
+                  </Checkbox>
+                </Flex>
+              ))}
+          </Flex>
+          <Flex justifyContent="center" mt={5}>
+            {characteristics.length === 5 && (
+              <Button
+                colorScheme={gender === "boy" ? "blue" : "pink"}
+                w={["20%", "50%", "250px", "250px"]}
+                type="submit"
+              >
+                Submit
+              </Button>
+            )}
+          </Flex>
+        </form>
+      </Flex>
+    </Flex>
   );
 };
 
