@@ -43,7 +43,7 @@ function Name({ option }) {
           <Box>
             <Label>celebrities</Label>
             {option.celebrities.map((celebrity) => (
-              <Box mr="2" as="span" fontSize="sm">
+              <Box key={celebrity.name} mr="2" as="span" fontSize="sm">
                 {celebrity},
               </Box>
             ))}

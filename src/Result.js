@@ -59,8 +59,8 @@ const Result = ({ gender, characteristics }) => {
   ) : (
     <>
       {gender === "boy"
-        ? BOYS.map((option) => <Name option={option} />)
-        : GIRLS.map((option) => <Name option={option} />)}
+        ? BOYS.map((option) => <Name key={option.name} option={option} />)
+        : GIRLS.map((option) => <Name key={option.name} option={option} />)}
     </>
   );
 };

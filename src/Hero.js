@@ -1,19 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import {
-  Box,
-  Button,
-  Flex,
-  Image,
-  Heading,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Flex, Image, Heading, Stack, Text } from "@chakra-ui/react";
 import koala from "../assets/koala.jpg";
 import GenderSelect from "./GenderSelect";
 
-function Hero({ title, subtitle, image, setGender, ...rest }) {
+function Hero({ title, subtitle, setGender, ...rest }) {
   return (
     <Flex
       align="center"
@@ -58,7 +48,7 @@ function Hero({ title, subtitle, image, setGender, ...rest }) {
           color="primary.800"
           opacity="0.6"
         >
-          Select your baby's gender to get started!
+          {`Select your baby's gender to get started!`}
         </Text>
       </Stack>
 
@@ -70,12 +60,6 @@ function Hero({ title, subtitle, image, setGender, ...rest }) {
 }
 
 export default Hero;
-
-Hero.propTypes = {
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  image: PropTypes.string,
-};
 
 Hero.defaultProps = {
   title: "React landing page with Chakra UI",

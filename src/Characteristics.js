@@ -3,7 +3,6 @@ import {
   Alert,
   AlertIcon,
   AlertTitle,
-  Box,
   Button,
   Checkbox,
   Flex,

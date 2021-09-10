@@ -6,9 +6,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Characteristics from "./Characteristics";
 import Layout from "./Layout";
 import Analyzer from "./Analyzer";
-import Result from "./Result";
 import About from "./About";
 import Hero from "./Hero";
+import Result from "./Result";
 
 const App = () => {
   const [gender, setGender] = useState("");
