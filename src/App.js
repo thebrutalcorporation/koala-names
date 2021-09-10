@@ -3,7 +3,7 @@ import { useState } from "react";
 import { render } from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Characteristics from "./Characteristics";
-import Header from "./Header";
+import Layout from "./Layout";
 import Analyzer from "./Analyzer";
 import Result from "./Result";
 
@@ -20,25 +20,26 @@ const App = () => {
 
   return (
     <Router>
-      <Header reset={reset} />
-      <Switch>
-        <Route path="/analyze">
-          <Analyzer gender={gender} characteristics={characteristics} />
-        </Route>
-        <Route path="/result">
-          <Result gender={gender} characteristics={characteristics} />
-        </Route>
-        <Route path="/">
-          <Characteristics
-            limit={limit}
-            setLimit={setLimit}
-            gender={gender}
-            setGender={setGender}
-            characteristics={characteristics}
-            setCharacteristics={setCharacteristics}
-          />
-        </Route>
-      </Switch>
+      <Layout reset={reset}>
+        <Switch>
+          <Route path="/analyze">
+            <Analyzer gender={gender} characteristics={characteristics} />
+          </Route>
+          <Route path="/result">
+            <Result gender={gender} characteristics={characteristics} />
+          </Route>
+          <Route path="/">
+            <Characteristics
+              limit={limit}
+              setLimit={setLimit}
+              gender={gender}
+              setGender={setGender}
+              characteristics={characteristics}
+              setCharacteristics={setCharacteristics}
+            />
+          </Route>
+        </Switch>
+      </Layout>
     </Router>
   );
 };
