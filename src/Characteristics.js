@@ -4,8 +4,10 @@ import {
   AlertIcon,
   AlertTitle,
   Button,
+  Center,
   Checkbox,
   Flex,
+  Heading,
 } from "@chakra-ui/react";
 import GenderSelect from "./GenderSelect";
 import { useHistory } from "react-router-dom";
@@ -91,6 +93,14 @@ const Characteristics = ({
           }}
         >
           {!gender && <GenderSelect setGender={setGender} />}
+          {gender && (
+            <Center>
+              <Heading as="h1" size="sm">
+                Select 5 characteristics for your child and we&apos;ll find the
+                perfect name for your {gender}.
+              </Heading>
+            </Center>
+          )}
           <Flex flexWrap="wrap" justifyContent="center">
             {gender &&
               CHARACTERISTICS_OPTIONS.map((characteristic) => (
