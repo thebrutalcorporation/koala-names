@@ -9,8 +9,8 @@ function Layout({ reset, children }, ...rest) {
       align="center"
       maxW={{ xl: "1200px" }}
       m="0 auto"
-      pl="10"
-      pr="10"
+      pl="5"
+      pr="5"
       {...rest}
     >
       <Header reset={reset} />

@@ -98,9 +98,9 @@ const Characteristics = ({
                   borderWidth="1px"
                   borderRadius="lg"
                   justifyContent="center"
-                  width={180}
+                  width={160}
                   height={100}
-                  p={5}
+                  p={4}
                   m={2}
                   key={characteristic.name}
                 >
