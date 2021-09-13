@@ -2,13 +2,13 @@ import React, { useState, StrictMode, lazy, Suspense } from "react";
 import { ChakraProvider, Spinner } from "@chakra-ui/react";
 import { render } from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Characteristics from "./Characteristics";
 import Layout from "./Layout";
 import Hero from "./Hero";
 
 const Analyzer = lazy(() => import("./Analyzer"));
 const About = lazy(() => import("./About"));
 const Result = lazy(() => import("./Result"));
+const Characteristics = lazy(() => import("./Characteristics"));
 
 const App = () => {
   const [gender, setGender] = useState("");
