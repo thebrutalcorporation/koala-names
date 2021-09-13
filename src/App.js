@@ -48,8 +48,8 @@ const App = () => {
             <Route path="/">
               <Hero
                 setGender={setGender}
-                title="Don't name your kid stupid names"
-                subtitle="Let a laowei choose a proper name!"
+                title="Don't give your kid stupid names"
+                subtitle="Let our expert laoweis choose one so your kid doesn't get bullied!"
               />
             </Route>
           </Switch>
