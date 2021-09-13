@@ -132,7 +132,11 @@ function koalaAppears() {
     { drawSVG: true, duration: 3, ease: Power2.easeOut }
   );
   tl.from(koalaP, { fill: "white", duration: 3, ease: Power2.easeOut }, "-=1");
-  tl.to(koalaP, { stroke: "none", duration: 2, ease: Power2.easeOut }, "-=2");
+  tl.to(
+    koalaP,
+    { stroke: "rgb(167, 168, 172)", duration: 2, ease: Power2.easeOut },
+    "-=2"
+  );
 
   return tl;
 }
