@@ -1,0 +1,43 @@
+#leg-1,
+#arm-1,
+#arm-2,
+#arm-3 {
+  fill: #8e8f94;
+}
+
+#body--right-shading {
+  fill: #9d9ea3;
+}
+
+#body--left-shading {
+  fill: #8e8f94;
+}
+
+#head {
+  fill: #a7a8ac;
+}
+
+#nose {
+  fill: #48494d;
+}
+#pupils,
+#white-pattern {
+  fill: #eaeaec;
+}
+
+#iris {
+  fill: black;
+}
+
+#arm-2,
+#arm-3,
+.hello {
+  visibility: hidden;
+}
+
+.koala {
+  max-width: 682px;
+  width: 50vw;
+  max-height: 629px;
+  visibility: hidden;
+}

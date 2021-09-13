@@ -1,6 +1,7 @@
 import React from "react";
-import { Box, Flex, Image, Heading, Stack, Text } from "@chakra-ui/react";
-import koala from "../assets/koala.jpg";
+import { Box, Flex, Heading, Stack, Text } from "@chakra-ui/react";
+
+import Koala from "./koala/Koala";
 import GenderSelect from "./GenderSelect";
 
 function Hero({ title, subtitle, setGender, ...rest }) {
@@ -53,17 +54,11 @@ function Hero({ title, subtitle, setGender, ...rest }) {
       </Stack>
 
       <Box w={{ base: "80%", sm: "60%", md: "50%" }} mb={{ base: 12, md: 0 }}>
-        <Image src={koala} size="100%" rounded="1rem" shadow="2xl" />
+        {/* <Image src={koala} size="100%" rounded="1rem" shadow="2xl" /> */}
+        <Koala />
       </Box>
     </Flex>
   );
 }
 
 export default Hero;
-
-Hero.defaultProps = {
-  title: "React landing page with Chakra UI",
-  subtitle:
-    "This is the subheader section where you describe the basic benefits of your product",
-  image: "",
-};
