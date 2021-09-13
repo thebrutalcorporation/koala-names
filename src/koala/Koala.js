@@ -25,8 +25,6 @@ function Koala() {
 
   return (
     <>
-      <h1 className="hello">Gday, Mate!</h1>
-
       <svg
         ref={koala}
         className="koala"
