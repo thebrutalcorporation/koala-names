@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Layout from "./Layout";
 import Hero from "./Hero";
 
-const Analyzer = lazy(() => import("./Analyzer"));
+const Analyzer = lazy(() => import("./analyzer/Analyzer"));
 const About = lazy(() => import("./About"));
 const Result = lazy(() => import("./Result"));
 const Characteristics = lazy(() => import("./Characteristics"));

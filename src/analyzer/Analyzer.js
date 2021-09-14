@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { Redirect, useHistory } from "react-router-dom";
-import { Flex, Heading, Spinner } from "@chakra-ui/react";
+import { Box, Flex, Heading, Spinner } from "@chakra-ui/react";
 import Lottie from "lottie-react";
 import loader from "./loader.json";
 
@@ -31,8 +31,9 @@ const Analyzer = ({ gender, characteristics }) => {
         color={gender === "boy" ? "blue.200" : "red.200"}
         size="xl"
       />
-
-      <Lottie animationData={loader} />
+      <Box w={["100vw", "100vw", "75vw", "50vw"]}>
+        <Lottie animationData={loader} />
+      </Box>
     </Flex>
   );
 };
