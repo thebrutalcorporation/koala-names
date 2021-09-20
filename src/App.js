@@ -4,6 +4,7 @@ import { render } from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Layout from "./Layout";
 import Hero from "./Hero";
+import Cursor from "./Cursor";
 
 const Analyzer = lazy(() => import("./analyzer/Analyzer"));
 const About = lazy(() => import("./About"));
@@ -14,6 +15,7 @@ const App = () => {
   const [gender, setGender] = useState("");
   const [characteristics, setCharacteristics] = useState([]);
   const [limit, setLimit] = useState(false);
+  const [isCursorActive, setCursorActive] = useState(false);
 
   const reset = () => {
     setGender("");
@@ -26,6 +28,7 @@ const App = () => {
       <Suspense fallback={<Spinner />}>
         <Router>
           <Layout reset={reset}>
+            <Cursor isCursorActive={isCursorActive} />
             <Switch>
               <Route path="/analyze">
                 <Analyzer gender={gender} characteristics={characteristics} />
@@ -51,6 +54,7 @@ const App = () => {
                   setGender={setGender}
                   title="Don't give your kid stupid names"
                   subtitle="Let our expert laoweis choose one so your kid doesn't get bullied!"
+                  setCursorActive={setCursorActive}
                 />
               </Route>
             </Switch>

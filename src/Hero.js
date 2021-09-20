@@ -4,7 +4,14 @@ import { Box, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import Koala from "./koala/Koala";
 import GenderSelect from "./GenderSelect";
 
-function Hero({ title, subtitle, setGender, ...rest }) {
+function Hero({
+  title,
+  subtitle,
+  setGender,
+  isCursorActive,
+  setCursorActive,
+  ...rest
+}) {
   return (
     <Flex
       align="center"
@@ -55,7 +62,10 @@ function Hero({ title, subtitle, setGender, ...rest }) {
 
       <Box w={{ base: "80%", sm: "60%", md: "50%" }} mb={{ base: 12, md: 0 }}>
         {/* <Image src={koala} size="100%" rounded="1rem" shadow="2xl" /> */}
-        <Koala />
+        <Koala
+          isCursorActive={isCursorActive}
+          setCursorActive={setCursorActive}
+        />
       </Box>
     </Flex>
   );
