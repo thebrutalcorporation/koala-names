@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { gsap, Power2 } from "gsap";
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
-
+import KoalaSvg from "./KoalaSvg.svg";
 import "./koala.css";
 
 gsap.registerPlugin(MorphSVGPlugin);
@@ -10,27 +10,35 @@ gsap.registerPlugin(DrawSVGPlugin);
 
 function Koala() {
   const koala = useRef();
-  // const q = gsap.utils.selector(koala);
+  const triggerWave = useRef(); //holder for interactive animation
+  const master = useRef(); //holder for interactive animation
 
   useEffect(() => {
     gsap.to(koala.current, {
       visibility: "visible",
     });
 
-    const master = gsap.timeline();
-    master.add(koalaAppears(), "koalaAppears");
-    master.add(blink(), "blink");
-    master.add(waves(), "waves");
+    //Prepare interactive animation
+    triggerWave.current = gsap.timeline({ paused: true });
+    triggerWave.current.add(waves());
+
+    //Set and run looped automations
+    master.current = gsap.timeline();
+    master.current.add(koalaAppears(), "koalaAppears");
+    master.current.add(blink(), "blink");
   }, []);
 
   return (
     <>
+      <div className="cursor"></div>
+      <div className="cursor-follower"></div>
       <svg
-        ref={koala}
         className="koala"
-        // width="684px"
-        // height="631px"
         viewBox="0 0 684 631"
+        ref={koala}
+        onClick={() => {
+          triggerWave.current.restart();
+        }}
       >
         <title>Standing Koala</title>
 
@@ -140,3 +148,31 @@ function koalaAppears() {
 
   return tl;
 }
+
+// function animateCursor() {
+//   var cursor = document.querySelector(".cursor")
+//   var follower = document.querySelector(".cursor-follower")
+
+//   TweenMax.to({}, 0.016, {
+//     repeat: -1,
+//     onRepeat: function () {
+//       posX += (mouseX - posX) / 9;
+//       posY += (mouseY - posY) / 9;
+
+//       TweenMax.set(follower, {
+//         css: {
+//           left: posX - 12,
+//           top: posY - 12,
+//         },
+//       });
+
+//       TweenMax.set(cursor, {
+//         css: {
+//           left: mouseX,
+//           top: mouseY,
+//         },
+//       });
+//     },
+//   });
+
+// }
