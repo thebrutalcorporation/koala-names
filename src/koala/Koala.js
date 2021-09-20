@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from "react";
 import { gsap, Power2 } from "gsap";
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
-import KoalaSvg from "./KoalaSvg.svg";
 import "./koala.css";
 
 gsap.registerPlugin(MorphSVGPlugin);
