@@ -111,7 +111,8 @@ function waves() {
   const arms = document.querySelector("#arm-1");
   const arms2 = document.querySelector("#arm-2");
   const arms3 = document.querySelector("#arm-3");
-  const tl = gsap.timeline({ repeat: -1, repeatDelay: 4 });
+  // const tl = gsap.timeline({ repeat: -1, repeatDelay: 4 });
+  const tl = gsap.timeline();
 
   tl.add("arms");
   tl.to(arms, 0.1, { morphSVG: arms2, ease: gsap.Linear }, "arms+=1");
